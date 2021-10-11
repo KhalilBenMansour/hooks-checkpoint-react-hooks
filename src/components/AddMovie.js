@@ -1,8 +1,8 @@
 import React from "react";
-import { Container, Form } from "react-bootstrap";
+import { Container, Form, Button } from "react-bootstrap";
 import { useState } from "react";
 
-const AddMovie = ({ onAdd }) => {
+const AddMovie = ({ onAdd, handleClose }) => {
   const [title, settitle] = useState("");
   const [description, setdescription] = useState("");
   const [posterURL, setposterURL] = useState("");
@@ -18,6 +18,7 @@ const AddMovie = ({ onAdd }) => {
     setdescription("");
     setposterURL("");
     setrating(0);
+    handleClose();
   };
 
   return (
@@ -59,7 +60,9 @@ const AddMovie = ({ onAdd }) => {
             onChange={(e) => setrating(e.target.value)}
           />
         </Form.Group>
-        <input type="submit" value="add movie" />
+        <Button type="submit" variant="primary">
+          Add Movie
+        </Button>
       </Form>
     </Container>
   );
